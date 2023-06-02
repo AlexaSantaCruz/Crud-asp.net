@@ -1,0 +1,42 @@
+﻿@page
+@model crudTortillas.Pages.Users.EditModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="User.id" />
+            <div class="form-group">
+                <label asp-for="User.name" class="control-label">Nombre</label>
+                <input asp-for="User.name" class="form-control" />
+                <span asp-validation-for="User.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.email" class="control-label">Correo</label>
+                <input asp-for="User.email" class="form-control" />
+                <span asp-validation-for="User.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br>
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <br>
+    <a asp-page="./Index">Volver a la lista de usuarios</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

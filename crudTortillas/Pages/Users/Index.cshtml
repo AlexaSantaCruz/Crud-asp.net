@@ -1,0 +1,42 @@
+﻿@page
+@model crudTortillas.Pages.Users.IndexModel
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1>Inicio</h1>
+
+<p>
+    <a asp-page="Create">Crear nuevo usuario</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Nombre</p>
+            </th>
+            <th>
+                <p>Correo</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
