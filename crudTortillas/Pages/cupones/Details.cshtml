@@ -1,0 +1,37 @@
+﻿@page
+@model crudTortillas.Pages.cupones.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Cupones de Descuento</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <p>Fecha de Caducidad</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.fechaCaducidad)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Descuento</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.porcentaje)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Código</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.codigo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.cuponesDescuento?.id">Editar</a> |
+    <a asp-page="./Index">Volver a la lista de Descuentos</a>
+</div>

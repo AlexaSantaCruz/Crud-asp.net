@@ -1,6 +1,6 @@
 ﻿namespace crudTortillas.Model
 {
-    public class productos
+    public class products
     {
         public int Id { get; set; }
 

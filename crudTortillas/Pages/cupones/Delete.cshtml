@@ -1,0 +1,40 @@
+﻿@page
+@model crudTortillas.Pages.cupones.DeleteModel
+
+@{
+    ViewData["Title"] = "Borrar";
+}
+
+<h1>Delete</h1>
+
+<h3>¿Está seguro de querer eliminar el siguiente código?</h3>
+<div>
+    <h4>cuponesDescuento</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <p>Fecha de Caducidad</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.fechaCaducidad)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Descuento</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.porcentaje)
+        </dd>
+        <dt class="col-sm-2">
+            <p>Código de Descuento</p>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cuponesDescuento.codigo)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="cuponesDescuento.id" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Volver a la lista de descuentos</a>
+    </form>
+</div>

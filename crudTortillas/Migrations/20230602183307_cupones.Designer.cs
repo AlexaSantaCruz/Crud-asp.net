@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crudTortillas.Data;
 
@@ -11,9 +12,10 @@ using crudTortillas.Data;
 namespace crudTortillas.Migrations
 {
     [DbContext(typeof(crudTortillasContext))]
-    partial class crudTortillasContextModelSnapshot : ModelSnapshot
+    [Migration("20230602183307_cupones")]
+    partial class cupones
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

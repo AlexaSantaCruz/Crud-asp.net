@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using crudTortillas.Data;
 using crudTortillas.Model;
 
-namespace crudTortillas.Pages.Productos
+namespace crudTortillas.Pages.cupones
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace crudTortillas.Pages.Productos
         }
 
         [BindProperty]
-      public products productos { get; set; } = default!;
+      public cuponesDescuento cuponesDescuento { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.productos == null)
+            if (id == null || _context.cuponesDescuento == null)
             {
                 return NotFound();
             }
 
-            var productos = await _context.productos.FirstOrDefaultAsync(m => m.Id == id);
+            var cuponesdescuento = await _context.cuponesDescuento.FirstOrDefaultAsync(m => m.id == id);
 
-            if (productos == null)
+            if (cuponesdescuento == null)
             {
                 return NotFound();
             }
             else 
             {
-                productos = productos;
+                cuponesDescuento = cuponesdescuento;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.productos == null)
+            if (id == null || _context.cuponesDescuento == null)
             {
                 return NotFound();
             }
-            var productos = await _context.productos.FindAsync(id);
+            var cuponesdescuento = await _context.cuponesDescuento.FindAsync(id);
 
-            if (productos != null)
+            if (cuponesdescuento != null)
             {
-                productos = productos;
-                _context.productos.Remove(productos);
+                cuponesDescuento = cuponesdescuento;
+                _context.cuponesDescuento.Remove(cuponesDescuento);
                 await _context.SaveChangesAsync();
             }
 

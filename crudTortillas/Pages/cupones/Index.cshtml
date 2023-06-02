@@ -1,0 +1,48 @@
+﻿@page
+@model crudTortillas.Pages.cupones.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inicio</h1>
+
+<p>
+    <a asp-page="Create">Crear nuevo código</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            <p>Fecha de Caducidad</p>
+            </th>
+            <th>
+            <p>Descuento</p>
+            </th>
+            <th>
+            <p>Código de Descuento</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.cuponesDescuento) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaCaducidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.porcentaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using crudTortillas.Data;
 using crudTortillas.Model;
 
-namespace crudTortillas.Pages.Productos
+namespace crudTortillas.Pages.cupones
 {
     public class IndexModel : PageModel
     {
@@ -19,13 +19,13 @@ namespace crudTortillas.Pages.Productos
             _context = context;
         }
 
-        public IList<products> productos { get;set; } = default!;
+        public IList<cuponesDescuento> cuponesDescuento { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.productos != null)
+            if (_context.cuponesDescuento != null)
             {
-                productos = await _context.productos.ToListAsync();
+                cuponesDescuento = await _context.cuponesDescuento.ToListAsync();
             }
         }
     }

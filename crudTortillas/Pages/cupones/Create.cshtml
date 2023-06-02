@@ -1,0 +1,44 @@
+﻿@page
+@model crudTortillas.Pages.cupones.CreateModel
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Nuevo</h1>
+
+<h4>cuponesDescuento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cuponesDescuento.fechaCaducidad" class="control-label">Fecha de Caducidad</label>
+                <input asp-for="cuponesDescuento.fechaCaducidad" class="form-control" />
+                <span asp-validation-for="cuponesDescuento.fechaCaducidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cuponesDescuento.porcentaje" class="control-label">Descuento</label>
+                <input asp-for="cuponesDescuento.porcentaje" class="form-control" />
+                <span asp-validation-for="cuponesDescuento.porcentaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cuponesDescuento.codigo" class="control-label">Código</label>
+                <input asp-for="cuponesDescuento.codigo" class="form-control" />
+                <span asp-validation-for="cuponesDescuento.codigo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Volver a la lista de códigos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

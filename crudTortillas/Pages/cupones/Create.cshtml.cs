@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using crudTortillas.Data;
 using crudTortillas.Model;
 
-namespace crudTortillas.Pages.Productos
+namespace crudTortillas.Pages.cupones
 {
     public class CreateModel : PageModel
     {
@@ -25,18 +25,18 @@ namespace crudTortillas.Pages.Productos
         }
 
         [BindProperty]
-        public products productos { get; set; } = default!;
+        public cuponesDescuento cuponesDescuento { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.productos == null || productos == null)
+          if (!ModelState.IsValid || _context.cuponesDescuento == null || cuponesDescuento == null)
             {
                 return Page();
             }
 
-            _context.productos.Add(productos);
+            _context.cuponesDescuento.Add(cuponesDescuento);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using crudTortillas.Data;
 using crudTortillas.Model;
 
-namespace crudTortillas.Pages.Productos
+namespace crudTortillas.Pages.cupones
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace crudTortillas.Pages.Productos
             _context = context;
         }
 
-      public products productos { get; set; } = default!; 
+      public cuponesDescuento cuponesDescuento { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.productos == null)
+            if (id == null || _context.cuponesDescuento == null)
             {
                 return NotFound();
             }
 
-            var productos = await _context.productos.FirstOrDefaultAsync(m => m.Id == id);
-            if (productos == null)
+            var cuponesdescuento = await _context.cuponesDescuento.FirstOrDefaultAsync(m => m.id == id);
+            if (cuponesdescuento == null)
             {
                 return NotFound();
             }
             else 
             {
-                productos = productos;
+                cuponesDescuento = cuponesdescuento;
             }
             return Page();
         }

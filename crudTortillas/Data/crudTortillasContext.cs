@@ -16,6 +16,8 @@ namespace crudTortillas.Data
 
         public DbSet<crudTortillas.Model.User> User { get; set; } = default!;
 
-        public DbSet<crudTortillas.Model.productos>? productos { get; set; }
+        public DbSet<crudTortillas.Model.products>? productos { get; set; }
+
+        public DbSet<crudTortillas.Model.cuponesDescuento>? cuponesDescuento { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using crudTortillas.Data;
 using crudTortillas.Model;
 
-namespace crudTortillas.Pages.Productos
+namespace crudTortillas.Pages.cupones
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace crudTortillas.Pages.Productos
         }
 
         [BindProperty]
-        public products productos { get; set; } = default!;
+        public cuponesDescuento cuponesDescuento { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.productos == null)
+            if (id == null || _context.cuponesDescuento == null)
             {
                 return NotFound();
             }
 
-            var productos =  await _context.productos.FirstOrDefaultAsync(m => m.Id == id);
-            if (productos == null)
+            var cuponesdescuento =  await _context.cuponesDescuento.FirstOrDefaultAsync(m => m.id == id);
+            if (cuponesdescuento == null)
             {
                 return NotFound();
             }
-            productos = productos;
+            cuponesDescuento = cuponesdescuento;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace crudTortillas.Pages.Productos
                 return Page();
             }
 
-            _context.Attach(productos).State = EntityState.Modified;
+            _context.Attach(cuponesDescuento).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace crudTortillas.Pages.Productos
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!productosExists(productos.Id))
+                if (!cuponesDescuentoExists(cuponesDescuento.id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace crudTortillas.Pages.Productos
             return RedirectToPage("./Index");
         }
 
-        private bool productosExists(int id)
+        private bool cuponesDescuentoExists(int id)
         {
-          return (_context.productos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.cuponesDescuento?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }
